@@ -1,2 +1,4 @@
 scikit_learn
 streamlit
+pandas
+pickle
