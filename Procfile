@@ -1,1 +1,1 @@
-web:sh setup.sh && streamlit run msdev2.py
+web:sh setup.sh && streamlit run classification.py
