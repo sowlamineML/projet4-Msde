@@ -8,7 +8,7 @@ import streamlit as st
 #from sklearn import preprocessing
 
 # load the model from disk
-#loaded_model = pickle.load(open(r'C:\users\lenovo\desktop\msdeclassifrf.pkl', 'rb'))
+#loaded_model = pickle.load(open(msdeclassifrf.pkl', 'rb'))
 
 # Creating the Titles and Image
 st.title("Predict loans")
