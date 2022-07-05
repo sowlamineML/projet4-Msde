@@ -1,2 +1,2 @@
 
-web: streamlit run --server.enableCORS false --server.port $PORT classification.py
+web: sh setup.sh && streamlit run classification.py
