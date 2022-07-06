@@ -150,7 +150,7 @@ elif option=='Load a file of data':
         df = df.replace(mapping_dict)
         st.write(df)
 
-    model_loan=pickle.load(open("msdev2.pkl", "rb"))
+    model_loan=pickle.load(open("msde.pkl", "rb"))
 
     if st.button('Predict'):
         prediction = model_loan.predict(df)
