@@ -1,3 +1,5 @@
 scikit_learn
 streamlit
 pandas
+xgboost
+
