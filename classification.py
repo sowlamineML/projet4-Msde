@@ -117,38 +117,38 @@ def show_results():
 
 
 
-    if option=='input parameters directly':
-        st.sidebar.header('User Input Parameters')
-        cred = user_input_features()
-        cred = cred.replace(mapping_dict)
-        show_results()
+if option=='input parameters directly':
+    st.sidebar.header('User Input Parameters')
+    cred = user_input_features()
+    cred = cred.replace(mapping_dict)
+    show_results()
 
 
 
 
-    elif option=='Load a file of data':
-        uploaded_file = st.file_uploader("Choose a file to load")
-        if uploaded_file is not None:
-            df = pd.read_csv(uploaded_file)
-            df["loan_status"].replace("Does not meet the credit policy. Status:Fully Paid", "Charged Off", inplace = True)
-            df["loan_status"].replace("Does not meet the credit policy. Status:Charged Off","Charged Off", inplace = True)
-            df["loan_status"].replace("Late (31-120 days)","Charged Off", inplace = True)
-            df["loan_status"].replace("Late (16-30 days)","Charged Off", inplace = True)
-            df["loan_status"].replace({"Fully Paid": 1, "Charged Off": 0}, inplace = True)
-            df["emp_length"].fillna("< 1 year", inplace = True)
-            df["annual_inc"] = df["annual_inc"].fillna((df["annual_inc"].mean()))
-            df["revol_util"].fillna(0.0000, inplace=True)
-            df["delinq_2yrs"].fillna(0.0, inplace=True)
-            df["pub_rec"].fillna(0.0, inplace=True)
-            df["inq_last_6mths"] = df["inq_last_6mths"].fillna((df["inq_last_6mths"].mean()))
-            df["open_acc"].fillna(1.0, inplace=True)
-            df["fico_average"] = df[['fico_range_high','fico_range_low']].mean(axis = 1)
-            df = df[['loan_amnt', 'term', 'installment', 'grade', 'emp_length',
+elif option=='Load a file of data':
+    uploaded_file = st.file_uploader("Choose a file to load")
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        df["loan_status"].replace("Does not meet the credit policy. Status:Fully Paid", "Charged Off", inplace = True)
+        df["loan_status"].replace("Does not meet the credit policy. Status:Charged Off","Charged Off", inplace = True)
+        df["loan_status"].replace("Late (31-120 days)","Charged Off", inplace = True)
+        df["loan_status"].replace("Late (16-30 days)","Charged Off", inplace = True)
+        df["loan_status"].replace({"Fully Paid": 1, "Charged Off": 0}, inplace = True)
+        df["emp_length"].fillna("< 1 year", inplace = True)
+        df["annual_inc"] = df["annual_inc"].fillna((df["annual_inc"].mean()))
+        df["revol_util"].fillna(0.0000, inplace=True)
+        df["delinq_2yrs"].fillna(0.0, inplace=True)
+        df["pub_rec"].fillna(0.0, inplace=True)
+        df["inq_last_6mths"] = df["inq_last_6mths"].fillna((df["inq_last_6mths"].mean()))
+        df["open_acc"].fillna(1.0, inplace=True)
+        df["fico_average"] = df[['fico_range_high','fico_range_low']].mean(axis = 1)
+        df = df[['loan_amnt', 'term', 'installment', 'grade', 'emp_length',
             'home_ownership', 'annual_inc', 'verification_status',
             'purpose', 'dti', 'delinq_2yrs', 'inq_last_6mths', 'open_acc',
             'pub_rec', 'revol_bal', 'revol_util', 'fico_average']]
-            df = df.replace(mapping_dict)
-            st.write(df)
+        df = df.replace(mapping_dict)
+        st.write(df)
 
         model_loan=pickle.load(open("msde2.pkl", "rb"))
 
