@@ -1,2 +1,2 @@
 
-web: sh setup.sh && streamlit run classification.py
+web: sh setup.sh && streamlit run "classification.py"
