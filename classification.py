@@ -104,7 +104,7 @@ def user_input_features():
 def show_results():
     st.subheader("User Input parameters")
     st.write(cred)
-    model_cred = pickle.load(open("Modele_Final.pkl", "rb"))
+    model_cred = pickle.load(open("msdev2.pkl", "rb"))
     prediction = model_cred.predict(cred)
     prediction_proba = model_cred.predict_proba(cred)
     st.subheader("Class labels and their corresponding index number")
@@ -150,7 +150,7 @@ elif option=='Load a file of data':
         df = df.replace(mapping_dict)
         st.write(df)
 
-    model_loan=pickle.load(open("Modele_Final.pkl", "rb"))
+    model_loan=pickle.load(open("msdev2.pkl", "rb"))
 
     if st.button('Predict'):
         prediction = model_loan.predict(df)
