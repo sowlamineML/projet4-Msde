@@ -117,11 +117,11 @@ def show_results():
 
 
 
-if option=='input parameters directly':
-    st.sidebar.header('User Input Parameters')
-    cred = user_input_features()
-    cred = cred.replace(mapping_dict)
-    show_results()
+    if option=='input parameters directly':
+        st.sidebar.header('User Input Parameters')
+        cred = user_input_features()
+        cred = cred.replace(mapping_dict)
+        show_results()
 
 
 
