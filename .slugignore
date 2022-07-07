@@ -1,8 +1,4 @@
 # Heres a comment
-*.psd
-*.pdf
-/test
-/spec
 datasets/
 doc/
 examples/
