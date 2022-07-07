@@ -1,4 +1,4 @@
 pandas
 xgboost
-pycaret
+pycaret-2.0
 
